@@ -17,9 +17,9 @@ public class IndexController {
         this.accidentService = accidentService;
     }
 
-    @RequestMapping(value = "/accidents", method = RequestMethod.GET)
-    public String showAccidents(ModelMap model) {
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index(ModelMap model) {
         model.addAttribute("accidents", accidentService.getAll());
-        return "accidents";
+        return "index";
     }
 }
