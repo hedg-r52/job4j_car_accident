@@ -1,5 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,26 +20,15 @@
         crossorigin="anonymous"></script>
 <body>
 
-<div class="container">
-    <h2>Car Accidents</h2>
-    <table class="table table-striped">
-        <tr>
-            <th><b>Id</b></th>
-            <th><b>Name</b></th>
-            <th><b>Text</b></th>
-            <th><b>Address</b></th>
-        </tr>
-        <c:forEach items="${accidents}" var="accident" varStatus="status">
-            <tr>
-                <td>${accident.value.id}</td>
-                <td>${accident.value.name}</td>
-                <td>${accident.value.text}</td>
-                <td>${accident.value.address}</td>
-            </tr>
-        </c:forEach>
-    </table>
-    <button type="button" class="btn btn-outline-primary" onclick="location.href = '/accident/add-accident'">Add</button>
-</div>
+
+<spring:form method="POST" action="/accident/add-accident" modelAttribute="accident">
+    <div class="input-group mb-3" style="margin-top: 20px">
+        <spring:input type="text" class="form-control" path="name" placeholder="Name"/>
+        <spring:input type="text" class="form-control" path="text" placeholder="Text"/>
+        <spring:input type="text" class="form-control" path="address" placeholder="Address"/>
+        <button type="submit" class="btn btn-outline-primary">Add</button>
+    </div>
+</spring:form>
 
 </body>
 </html>
