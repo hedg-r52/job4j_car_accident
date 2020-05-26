@@ -1,11 +1,11 @@
-package ru.job4j.police.controller;
+package ru.job4j.accident.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import ru.job4j.police.model.Accident;
-import ru.job4j.police.service.AccidentService;
+import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.service.AccidentService;
 
 @Controller
 @RequestMapping("/add-accident")

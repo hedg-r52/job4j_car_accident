@@ -1,4 +1,4 @@
-package ru.job4j.police.utils;
+package ru.job4j.accident.utils;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;

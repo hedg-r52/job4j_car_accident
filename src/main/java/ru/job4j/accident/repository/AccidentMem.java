@@ -1,7 +1,7 @@
-package ru.job4j.police.repository;
+package ru.job4j.accident.repository;
 
 import org.springframework.stereotype.Component;
-import ru.job4j.police.model.Accident;
+import ru.job4j.accident.model.Accident;
 
 import java.util.*;
 

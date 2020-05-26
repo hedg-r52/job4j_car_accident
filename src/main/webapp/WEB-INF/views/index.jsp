@@ -28,12 +28,12 @@
             <th><b>Text</b></th>
             <th><b>Address</b></th>
         </tr>
-        <c:forEach items="${accidents}" var="accident" varStatus="status">
+        <c:forEach items="${accidents}" var="accident">
             <tr>
-                <td>${accident.value.id}</td>
-                <td>${accident.value.name}</td>
-                <td>${accident.value.text}</td>
-                <td>${accident.value.address}</td>
+                <td>${accident.id}</td>
+                <td>${accident.name}</td>
+                <td>${accident.text}</td>
+                <td>${accident.address}</td>
             </tr>
         </c:forEach>
     </table>
