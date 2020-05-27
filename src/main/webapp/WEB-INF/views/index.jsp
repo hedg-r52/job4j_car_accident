@@ -20,7 +20,10 @@
 <body>
 
 <div class="container">
-    <h2>Car Accidents</h2>
+    <h2 style="margin-top: 20px">Car Accidents</h2>
+    <div style="margin: 20px">
+        Login as : ${user.username}
+    </div>
     <table class="table table-striped">
         <tr>
             <th><b>Id</b></th>
