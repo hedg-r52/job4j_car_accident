@@ -9,8 +9,7 @@ import ru.job4j.accident.service.AccidentService;
 
 @Controller
 public class IndexController {
-
-    private AccidentService accidentService;
+    private final AccidentService accidentService;
 
     @Autowired
     public IndexController(AccidentService accidentService) {

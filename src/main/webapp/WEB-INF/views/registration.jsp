@@ -13,17 +13,12 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Login</title>
+    <title>Registration</title>
 </head>
 <body>
-<c:if test="${not empty errorMessage}">
-    <div style="color:red; font-weight: bold; margin: 30px 0;">
-            ${errorMessage}
-    </div>
-</c:if>
 <div class="container">
-    <h2>Login</h2>
-    <form name='login' action='<%=request.getContextPath()%>/login' method='POST'>
+    <h2>Registration</h2>
+    <form name='reg' action='<%=request.getContextPath()%>/reg' method='POST'>
         <div class="row" style="margin-top: 10px">
             <div class="col-1">
                 <label for='name'>UserName:</label>
@@ -41,9 +36,11 @@
             </div>
         </div>
         <div  class="row">
-            <input type="submit" class="btn btn-outline-primary" name="submit" value="Sign in" style="margin: 10px"/>
-            <button type="button" class="btn btn-outline-primary" onclick="location.href = '<%=request.getContextPath()%>/reg'" style="margin: 10px">Sign up</button>
+            <input class="btn btn-outline-primary" name="submit" type="submit" value="sign in" style="margin: 10px"/>
+            <button type="button" class="btn btn-outline-primary" onclick="location.href = '<%=request.getContextPath()%>'" style="margin: 10px">Go back
+            </button>
         </div>
+
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
 </div>

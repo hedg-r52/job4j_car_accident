@@ -111,32 +111,10 @@
             <artifactId>commons-dbcp2</artifactId>
             <version>2.6.0</version>
         </dependency>
-
-
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>3.8.8</version>
-                <configuration>
-                    <changeLogFile>${basedir}/db/master.xml</changeLogFile>
-                    <url>jdbc:postgresql://127.0.0.1/accidents</url>
-                    <driver>org.postgresql.Driver</driver>
-                    <username>postgres</username>
-                    <password>postgres</password>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>update</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

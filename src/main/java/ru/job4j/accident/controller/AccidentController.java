@@ -10,7 +10,7 @@ import ru.job4j.accident.service.AccidentService;
 @Controller
 @RequestMapping("/add-accident")
 public class AccidentController {
-    private AccidentService accidentService;
+    private final AccidentService accidentService;
 
     @Autowired
     public AccidentController(AccidentService accidentService) {

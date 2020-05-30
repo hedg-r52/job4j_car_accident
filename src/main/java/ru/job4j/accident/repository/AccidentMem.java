@@ -7,7 +7,7 @@ import java.util.*;
 
 @Component
 public class AccidentMem {
-    private HashMap<Integer, Accident> accidents;
+    private final HashMap<Integer, Accident> accidents;
 
     public AccidentMem() {
         this.accidents = new HashMap<>();
