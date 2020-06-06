@@ -6,9 +6,6 @@ import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Role;
 import ru.job4j.accident.model.User;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Repository
 public class UserRepository {
     private final SessionFactory sessionFactory;

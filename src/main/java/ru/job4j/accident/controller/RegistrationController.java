@@ -5,17 +5,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.job4j.accident.model.User;
-import ru.job4j.accident.service.UserService;
+import ru.job4j.accident.repository.UserRepository;
 
 @Controller
 public class RegistrationController {
     private final PasswordEncoder encoder;
-    private final UserService userService;
+    private final UserRepository users;
 
     @Autowired
-    public RegistrationController(PasswordEncoder encoder, UserService userService) {
+    public RegistrationController(PasswordEncoder encoder, UserRepository users) {
         this.encoder = encoder;
-        this.userService = userService;
+        this.users = users;
     }
 
     @RequestMapping(value = "/reg", method = RequestMethod.GET)
@@ -27,7 +27,7 @@ public class RegistrationController {
     public String reg(@ModelAttribute User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         user.setEnabled(true);
-        userService.save(user);
+        users.save(user);
         return "login";
     }
 }

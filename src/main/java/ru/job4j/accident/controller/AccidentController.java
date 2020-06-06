@@ -5,16 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.service.AccidentService;
+import ru.job4j.accident.repository.AccidentRepository;
 
 @Controller
 @RequestMapping("/add-accident")
 public class AccidentController {
-    private final AccidentService accidentService;
+    private final AccidentRepository accidents;
 
     @Autowired
-    public AccidentController(AccidentService accidentService) {
-        this.accidentService = accidentService;
+    public AccidentController(AccidentRepository accidents) {
+        this.accidents = accidents;
     }
 
     @GetMapping
@@ -27,7 +27,7 @@ public class AccidentController {
 
     @PostMapping
     public String addAccident(@ModelAttribute("accident") Accident accident) {
-        this.accidentService.add(accident);
+        this.accidents.save(accident);
         return "redirect:/";
     }
 }
