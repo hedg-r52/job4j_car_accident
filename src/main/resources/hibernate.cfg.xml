@@ -15,7 +15,7 @@
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
 
-        <mapping class="ru.job4j.police.model.Accident" />
+        <mapping class="ru.job4j.accident.model.Accident" />
 
     </session-factory>
 </hibernate-configuration>

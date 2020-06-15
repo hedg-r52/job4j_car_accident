@@ -27,6 +27,7 @@
             <th><b>Name</b></th>
             <th><b>Text</b></th>
             <th><b>Address</b></th>
+            <th><b>Type</b></th>
         </tr>
         <c:forEach items="${accidents}" var="accident" varStatus="status">
             <tr>
@@ -34,6 +35,7 @@
                 <td>${accident.value.name}</td>
                 <td>${accident.value.text}</td>
                 <td>${accident.value.address}</td>
+                <td>${accident.value.type}</td>
             </tr>
         </c:forEach>
     </table>

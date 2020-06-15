@@ -1,9 +1,9 @@
-package ru.job4j.police.service;
+package ru.job4j.accident.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.job4j.police.model.Accident;
-import ru.job4j.police.repository.AccidentMem;
+import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.repository.AccidentMem;
 
 import java.util.Map;
 

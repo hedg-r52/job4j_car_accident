@@ -1,7 +1,8 @@
-package ru.job4j.police.repository;
+package ru.job4j.accident.repository;
 
 import org.springframework.stereotype.Component;
-import ru.job4j.police.model.Accident;
+import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.utils.AccidentUtils;
 
 import java.util.*;
 
@@ -12,7 +13,16 @@ public class AccidentMem {
     public AccidentMem() {
         this.accidents = new HashMap<>();
         for (int i = 0; i < 6; i++) {
-            this.accidents.put(i, new Accident(i, "accident" + i, "text" + i, "address" + i));
+            this.accidents.put(
+                    i,
+                    new Accident(
+                            i,
+                            "accident" + i,
+                            "text" + i,
+                            "address" + i,
+                            AccidentUtils.getAccidentTypes().get(i % 3)
+                    )
+            );
         }
     }
 

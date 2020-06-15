@@ -1,10 +1,10 @@
-package ru.job4j.police.repository;
+package ru.job4j.accident.repository;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Component;
-import ru.job4j.police.model.Accident;
-import ru.job4j.police.utils.HibernateUtils;
+import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.utils.HibernateUtils;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
