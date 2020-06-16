@@ -22,16 +22,22 @@
 
 
 <spring:form method="POST" action="/accident/add-accident" modelAttribute="accident">
-    <div class="input-group mb-3" style="margin-top: 20px">
-        <spring:input type="text" class="form-control" path="name" placeholder="Name"/>
-        <spring:input type="text" class="form-control" path="text" placeholder="Text"/>
-        <spring:input type="text" class="form-control" path="address" placeholder="Address"/>
-        <select name="type.id">
+    <div style="margin: 20px 0 0 40px; width: 80%;">
+        <spring:input type="text" class="form-control form-field" path="name" placeholder="Name"/><br/>
+        <spring:input type="text" class="form-control form-field" path="text" placeholder="Text"/><br/>
+        <spring:input type="text" class="form-control form-field" path="address" placeholder="Address"/><br/>
+        <select name="type.id" class="form-field">
             <c:forEach var="type" items="${types}">
                 <option value="${type.id}">${type.name}</option>
             </c:forEach>
         </select>
-        <button type="submit" class="btn btn-outline-primary">Add</button>
+        <br/>
+        <select id="ruleIds" name="ruleIds" size="4" multiple class="form-field">
+            <c:forEach var="rule" items="${rules}">
+                <option value="${rule.id}">${rule.name}</option>
+            </c:forEach>
+        </select><br><br>
+        <button type="submit" class="btn btn-outline-primary form-field">Add</button>
     </div>
 </spring:form>
 

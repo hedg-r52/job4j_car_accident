@@ -6,11 +6,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
+import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.service.AccidentService;
 import ru.job4j.accident.utils.AccidentUtils;
+import ru.job4j.accident.utils.RuleUtils;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import java.util.*;
 
 @Controller
 @RequestMapping("/add-accident")
@@ -27,13 +29,23 @@ public class AccidentController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("accident", new Accident());
         modelAndView.addObject("types", AccidentUtils.getAccidentTypes());
+        modelAndView.addObject("rules", RuleUtils.getRules());
         modelAndView.setViewName("accidentEdit");
         return modelAndView;
     }
 
     @PostMapping
-    public String addAccident(@ModelAttribute("accident") Accident accident, @RequestParam(value = "type.id", required = true) int id) {
+    public String addAccident(@ModelAttribute("accident") Accident accident, HttpServletRequest request) {
+        int id = Integer.parseInt(request.getParameter("type.id"));
         accident.setType(AccidentUtils.getById(id));
+
+        Set<Rule> rules = new LinkedHashSet<>();
+        for(String stringId : request.getParameterValues("ruleIds")) {
+            int ruleId = Integer.parseInt(stringId);
+            rules.add(RuleUtils.getById(ruleId));
+        }
+        accident.setRules(rules);
+
         this.accidentService.add(accident);
         return "redirect:/";
     }
