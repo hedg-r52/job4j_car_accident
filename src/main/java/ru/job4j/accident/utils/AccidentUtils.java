@@ -13,4 +13,15 @@ public class AccidentUtils {
         types.add(AccidentType.of(3, "Машина и велосипед"));
         return types;
     }
+
+    public static AccidentType getById(int id) {
+        AccidentType result = null;
+        for(AccidentType t : getAccidentTypes()) {
+            if (id == t.getId()) {
+                result = t;
+                break;
+            }
+        }
+        return result;
+    }
 }

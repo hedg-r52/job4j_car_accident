@@ -32,7 +32,8 @@ public class AccidentController {
     }
 
     @PostMapping
-    public String addAccident(@ModelAttribute("accident") Accident accident) {
+    public String addAccident(@ModelAttribute("accident") Accident accident, @RequestParam(value = "type.id", required = true) int id) {
+        accident.setType(AccidentUtils.getById(id));
         this.accidentService.add(accident);
         return "redirect:/";
     }

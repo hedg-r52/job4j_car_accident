@@ -26,11 +26,11 @@
         <spring:input type="text" class="form-control" path="name" placeholder="Name"/>
         <spring:input type="text" class="form-control" path="text" placeholder="Text"/>
         <spring:input type="text" class="form-control" path="address" placeholder="Address"/>
-        <spring:select path="type.id" name="type.id">
+        <select name="type.id">
             <c:forEach var="type" items="${types}">
                 <option value="${type.id}">${type.name}</option>
             </c:forEach>
-        </spring:select>
+        </select>
         <button type="submit" class="btn btn-outline-primary">Add</button>
     </div>
 </spring:form>
